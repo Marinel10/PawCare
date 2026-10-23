@@ -1,4 +1,4 @@
-namespace PawCare.Models
+namespace PawCare.ViewModels
 {
     public class ErrorViewModel
     {
