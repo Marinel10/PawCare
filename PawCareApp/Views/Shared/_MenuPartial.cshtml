@@ -1,0 +1,50 @@
+﻿@{
+    var controller = ViewContext.RouteData.Values["controller"]?.ToString();
+    var action = ViewContext.RouteData.Values["action"]?.ToString();
+}
+
+
+
+<ul class="navbar-nav mx-lg-auto gap-lg-2">
+
+    <li class="nav-item">
+        <a class="nav-link @(controller == "Home" && action == "Index" ? "active" : "")"
+           asp-controller="Home"
+           asp-action="Index">
+            Home
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link @(controller == "Pets" ? "active" : "")"
+           asp-controller="Pets"
+           asp-action="Index">
+            My Pets
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link @(controller == "Appointments" ? "active" : "")"
+           asp-controller="Appointments"
+           asp-action="Index">
+            Appointments
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link @(controller == "Home" && action == "About" ? "active" : "")"
+           asp-controller="Home"
+           asp-action="About">
+            About
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link @(controller == "Home" && action == "Contact" ? "active" : "")"
+           asp-controller="Home"
+           asp-action="Contact">
+            Contact
+        </a>
+    </li>
+
+</ul>

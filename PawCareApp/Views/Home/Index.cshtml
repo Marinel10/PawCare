@@ -1,8 +1,134 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@section Styles{
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+}
+
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+                 
+            @{ 
+                /* Left content */
+            }
+
+            <div class="col-lg-6">
+
+                <span class="location-badge">
+                    <i class="bi bi-geo-alt"></i>
+                    YOUR TRUSTED VET CLINIC
+                </span>
+
+                <h1 class="hero-title mt-4">
+                    Quality care <br />
+                    for OUR <span>furry FAMILY</span>.
+                </h1>
+
+                <p class="hero-description mt-3">
+                    At PawCare, we are here to ensure that every member of the family is happy, healthy, and loved – become part of our family.
+                </p>
+
+
+
+                <div class="btn btn-appointment">
+                        <a asp-controller="Appointments"
+                           asp-action="Create"
+                       class="btn btn-appointment">
+                            Request an Appointment
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+            
+
+
+                <div class="hero-features d-flex flex-wrap gap-4 mt-4">
+                    <span><i class="bi bi-heart"></i> Compassionate</span>
+                    <span><i class="bi bi-shield-check"></i> Modern Equipment</span>
+                    <span><i class="bi bi-people"></i> Family Friendly</span>
+                </div>
+            </div>
+
+               @{ 
+                   /* Right image */ 
+               }
+
+
+            <div class="col-lg-6">
+                <div class="hero-image-wrapper">
+                    <img src="~/img/homePagePicture.png"
+                         alt="Dog and cat"
+                         class="img-fluid hero-image" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+   @{
+       /* Quick action cards */ 
+   }
+
+
+<section id="services" class="quick-actions">
+    <div class="container">
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card action-card h-100">
+                    <div class="card-body">
+                        <div class="action-icon">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
+                        <h5>Request an appointment</h5>
+                        <p>Book a visit in minutes.</p>
+                        <a asp-controller="Appointments"
+                           asp-action="Create"
+                           class="stretched-link">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card action-card h-100">
+                    <div class="card-body">
+                        <div class="action-icon">
+                            <i class="bi bi-heart-pulse"></i>
+                        </div>
+                        <h5>Our Services</h5>
+                        <p>Wellness, surgery, dental & more.</p>
+                        <a asp-controller="Service"
+                           asp-action="Index"
+                           class="stretched-link">
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card action-card h-100">
+                    <div class="card-body">
+                        <div class="action-icon">
+                            <i class="bi bi-exclamation-circle"></i>
+                        </div>
+                        <h5>Emergency</h5>
+                        <p>Urgent care information.</p>
+                        <a asp-controller="Home"
+                           asp-action="Contact"
+                           class="stretched-link">
+                            
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
