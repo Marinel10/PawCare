@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Contracts\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PawCare.Data.Models\PawCare.Data.Models.csproj" />
+    <ProjectReference Include="..\PawCare.Data\PawCare.Data.csproj" />
+    <ProjectReference Include="..\PawCare.GCommon\PawCare.GCommon.csproj" />
+    <ProjectReference Include="..\PawCare.Services.Data\PawCare.Services.Data.csproj" />
+  </ItemGroup>
+
+</Project>

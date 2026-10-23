@@ -1,9 +1,10 @@
-using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using PawCare.Models;
 
 namespace PawCare.Controllers
 {
+    using System.Diagnostics;
+    using Microsoft.AspNetCore.Mvc;
+    using PawCare.ViewModels;
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
