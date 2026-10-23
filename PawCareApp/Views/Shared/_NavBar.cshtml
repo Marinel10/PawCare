@@ -1,0 +1,58 @@
+﻿@section Styles {
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+}
+
+<nav class="navbar navbar-expand-lg navbar-light paw-navbar">
+    <div class="container-fluid px-lg-5">
+        @{
+            /* Logo */
+        }
+     
+        <a class="navbar-brand d-flex align-items-center gap-2"
+           asp-controller="Home"
+           asp-action="Index">
+
+            <span class="brand-icon">
+                <i class="bi bi-heart-pulse-fill"></i>
+            </span>
+
+            <span class="brand-text">
+                Paw<span>Care</span>
+            </span>
+        </a>
+        @{
+            /* Mobile toggle */
+        }
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#pawNavbar"
+                aria-controls="pawNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse"
+             id="pawNavbar">
+
+            <partial name="_MenuPartial" />
+
+            <div class="navbar-actions d-flex
+                        align-items-lg-center gap-3">
+
+                <partial name="_LoginPartial" />
+
+                <a asp-controller="Appointments"
+                   asp-action="Create"
+                   class="btn btn-book text-nowrap">
+                    <i class="bi bi-calendar-check me-2"></i>
+                    Book Visit
+                </a>
+
+            </div>
+        </div>
+    </div>
+</nav>
