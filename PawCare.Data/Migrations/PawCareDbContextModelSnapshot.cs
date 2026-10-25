@@ -137,6 +137,24 @@ namespace PawCare.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "df1c3a0f-1234-4cde-bb55-d5f15a6aabcd",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "efae5c16-afc1-4d16-a5ec-ce71cc687735",
+                            Email = "admin@pawcare.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@PAWCARE.COM",
+                            NormalizedUserName = "ADMIN@PAWCARE.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAENvmBTcSMiIZEZh/o60WsmxG0En4Ne2wMHgy7x6qW+JLke7uiVh7Q8clNL8iffuC4Q==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "0ab63e08-c330-46ad-b14c-08a26b71ed40",
+                            TwoFactorEnabled = false,
+                            UserName = "admin@pawcare.com"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -306,6 +324,110 @@ namespace PawCare.Data.Migrations
                     b.HasIndex("SpeciesId");
 
                     b.ToTable("Breeds");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Labrador Retriever",
+                            SpeciesId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "German Shepherd",
+                            SpeciesId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Golden Retriever",
+                            SpeciesId = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Bulldog",
+                            SpeciesId = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Beagle",
+                            SpeciesId = 1
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Name = "British Shorthair",
+                            SpeciesId = 2
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Name = "Persian",
+                            SpeciesId = 2
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Name = "Maine Coon",
+                            SpeciesId = 2
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Name = "Siamese",
+                            SpeciesId = 2
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Name = "Holland Lop",
+                            SpeciesId = 3
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Name = "Netherland Dwarf",
+                            SpeciesId = 3
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Name = "Budgerigar",
+                            SpeciesId = 4
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Name = "Cockatiel",
+                            SpeciesId = 4
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Name = "Syrian Hamster",
+                            SpeciesId = 5
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Name = "Dwarf Hamster",
+                            SpeciesId = 5
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Name = "Miniature Pinscher",
+                            SpeciesId = 1
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Name = "Cavalier King Charles Spaniel",
+                            SpeciesId = 1
+                        });
                 });
 
             modelBuilder.Entity("PawCare.Data.Models.MedicalRecord", b =>
@@ -408,6 +530,85 @@ namespace PawCare.Data.Migrations
                     b.HasIndex("SpeciesId");
 
                     b.ToTable("Pets");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BirthDate = new DateTime(2021, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            BreedId = 1,
+                            Gender = 2,
+                            IsDeleted = false,
+                            Name = "Max",
+                            OwnerId = "df1c3a0f-1234-4cde-bb55-d5f15a6aabcd",
+                            SpeciesId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            BirthDate = new DateTime(2022, 8, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            BreedId = 3,
+                            Gender = 1,
+                            IsDeleted = false,
+                            Name = "Bella",
+                            OwnerId = "df1c3a0f-1234-4cde-bb55-d5f15a6aabcd",
+                            SpeciesId = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BirthDate = new DateTime(2023, 2, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            BreedId = 6,
+                            Gender = 1,
+                            IsDeleted = false,
+                            Name = "Milo",
+                            OwnerId = "df1c3a0f-1234-4cde-bb55-d5f15a6aabcd",
+                            SpeciesId = 2
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BirthDate = new DateTime(2020, 11, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            BreedId = 8,
+                            Gender = 2,
+                            IsDeleted = false,
+                            Name = "Luna",
+                            OwnerId = "df1c3a0f-1234-4cde-bb55-d5f15a6aabcd",
+                            SpeciesId = 2
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BirthDate = new DateTime(2024, 1, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            BreedId = 10,
+                            Gender = 1,
+                            IsDeleted = false,
+                            Name = "Coco",
+                            OwnerId = "df1c3a0f-1234-4cde-bb55-d5f15a6aabcd",
+                            SpeciesId = 3
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BirthDate = new DateTime(2023, 6, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            BreedId = 12,
+                            Gender = 2,
+                            IsDeleted = false,
+                            Name = "Kiwi",
+                            OwnerId = "df1c3a0f-1234-4cde-bb55-d5f15a6aabcd",
+                            SpeciesId = 4
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BirthDate = new DateTime(2025, 3, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            BreedId = 14,
+                            Gender = 1,
+                            IsDeleted = false,
+                            Name = "Nibbles",
+                            OwnerId = "df1c3a0f-1234-4cde-bb55-d5f15a6aabcd",
+                            SpeciesId = 5
+                        });
                 });
 
             modelBuilder.Entity("PawCare.Data.Models.Procedure", b =>
@@ -438,6 +639,64 @@ namespace PawCare.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Procedures");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Routine veterinary examination",
+                            Name = "General Examination",
+                            Price = 30.00m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Standard pet vaccination",
+                            Name = "Vaccination",
+                            Price = 45.00m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Laboratory blood examination",
+                            Name = "Blood Test",
+                            Price = 60.00m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "Pet identification microchip",
+                            Name = "Microchipping",
+                            Price = 40.00m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Description = "Internal parasite treatment",
+                            Name = "Deworming",
+                            Price = 25.00m
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Description = "Diagnostic ultrasound examination",
+                            Name = "Ultrasound",
+                            Price = 75.00m
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Description = "Diagnostic radiography",
+                            Name = "X-ray",
+                            Price = 80.00m
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Description = "Professional dental cleaning",
+                            Name = "Dental Cleaning",
+                            Price = 120.00m
+                        });
                 });
 
             modelBuilder.Entity("PawCare.Data.Models.Species", b =>
@@ -458,6 +717,33 @@ namespace PawCare.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Species");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Dog"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Cat"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Rabbit"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Name = "Bird"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Name = "Hamster"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -544,7 +830,7 @@ namespace PawCare.Data.Migrations
             modelBuilder.Entity("PawCare.Data.Models.Breed", b =>
                 {
                     b.HasOne("PawCare.Data.Models.Species", "Species")
-                        .WithMany()
+                        .WithMany("Breeds")
                         .HasForeignKey("SpeciesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -582,7 +868,7 @@ namespace PawCare.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("PawCare.Data.Models.Species", "Species")
-                        .WithMany()
+                        .WithMany("Pets")
                         .HasForeignKey("SpeciesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -614,6 +900,13 @@ namespace PawCare.Data.Migrations
             modelBuilder.Entity("PawCare.Data.Models.Procedure", b =>
                 {
                     b.Navigation("AppointmentProcedures");
+                });
+
+            modelBuilder.Entity("PawCare.Data.Models.Species", b =>
+                {
+                    b.Navigation("Breeds");
+
+                    b.Navigation("Pets");
                 });
 #pragma warning restore 612, 618
         }
