@@ -1,0 +1,95 @@
+﻿@{
+    ViewData["Title"] = "My Pets";
+
+    var pets = new[]
+    {
+        new
+        {
+            Id = 1,
+            Name = "Henri",
+            Species = "Dog",
+            Breed = "Golden Retriever",
+            Age = "3 years",
+            ImageUrl = "https://images.unsplash.com/photo-1552053831-71594a27632d?w=600"
+        },
+        new
+        {
+            Id = 2,
+            Name = "Luna",
+            Species = "Cat",
+            Breed = "British Shorthair",
+            Age = "2 years",
+            ImageUrl = "https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=600"
+        },
+        new
+        {
+            Id = 3,
+            Name = "Roni",
+            Species = "Dog",
+            Breed = "Beagle",
+            Age = "5 years",
+            ImageUrl = "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=600"
+        }
+    };
+}
+
+<section class="pets-page container py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="fw-bold">My Pets</h1>
+            <p class="text-muted">
+                Manage your furry family members.
+            </p>
+        </div>
+
+        <a asp-controller="Pets"
+           asp-action="Create"
+           class="btn btn-paw">
+            <i class="bi bi-plus-lg me-2"></i>
+            Add Pet
+        </a>
+    </div>
+
+    <div class="row g-4">
+        @foreach (var pet in pets)
+        {
+            <div class="col-md-6 col-lg-4">
+                <div class="card pet-card h-100">
+
+                    <img src="@pet.ImageUrl"
+                         class="pet-image"
+                         alt="@pet.Name" />
+
+                    <div class="card-body d-flex flex-column">
+                        <h4 class="fw-bold">@pet.Name</h4>
+
+                        <p class="text-muted mb-2">
+                            @pet.Species · @pet.Breed
+                        </p>
+
+                        <p class="mb-4">
+                            <i class="bi bi-calendar-heart me-2"></i>
+                            @pet.Age
+                        </p>
+
+                        <div class="d-flex gap-2 mt-auto">
+                            <a asp-action="Details"
+                               asp-route-id="@pet.Id"
+                               class="btn btn-paw flex-fill">
+                                Details
+                            </a>
+
+                            <a asp-action="Edit"
+                               asp-route-id="@pet.Id"
+                               class="btn btn-outline-secondary">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</section>
