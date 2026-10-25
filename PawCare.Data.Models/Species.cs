@@ -31,15 +31,15 @@
         /// <summary>
         /// Gets or sets the collection of breeds belonging to this species.
         /// </summary>
-       // public virtual ICollection<Breed> Breeds { get; set; }
-          //  = new HashSet<Breed>();
+        public virtual ICollection<Breed> Breeds { get; set; }
+            = new HashSet<Breed>();
 
 
         /// <summary>
         /// Gets or sets the collection of pets belonging to this species.
         /// </summary>
-       //public virtual ICollection<Pet> Pets { get; set; }
-          //  = new HashSet<Pet>();
+       public virtual ICollection<Pet> Pets { get; set; }
+            = new HashSet<Pet>();
 
     }
 }

@@ -32,7 +32,7 @@
         {
             base.OnModelCreating(builder);
 
-
+            builder.ApplyConfigurationsFromAssembly(typeof(PawCareDbContext).Assembly);
         }
 
     }
