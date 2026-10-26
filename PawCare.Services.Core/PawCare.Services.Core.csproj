@@ -7,15 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\PawCare.Data.Models\PawCare.Data.Models.csproj" />
     <ProjectReference Include="..\PawCare.Data\PawCare.Data.csproj" />
     <ProjectReference Include="..\PawCare.GCommon\PawCare.GCommon.csproj" />
     <ProjectReference Include="..\PawCare.Services.Data\PawCare.Services.Data.csproj" />
+    <ProjectReference Include="..\PawCare.ViewModels\PawCare.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>
