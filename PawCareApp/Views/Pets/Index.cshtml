@@ -1,36 +1,8 @@
 ﻿@{
     ViewData["Title"] = "My Pets";
 
-    var pets = new[]
-    {
-        new
-        {
-            Id = 1,
-            Name = "Henri",
-            Species = "Dog",
-            Breed = "Golden Retriever",
-            Age = "3 years",
-            ImageUrl = "https://images.unsplash.com/photo-1552053831-71594a27632d?w=600"
-        },
-        new
-        {
-            Id = 2,
-            Name = "Luna",
-            Species = "Cat",
-            Breed = "British Shorthair",
-            Age = "2 years",
-            ImageUrl = "https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=600"
-        },
-        new
-        {
-            Id = 3,
-            Name = "Roni",
-            Species = "Dog",
-            Breed = "Beagle",
-            Age = "5 years",
-            ImageUrl = "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=600"
-        }
-    };
+    @model IEnumerable<PetViewModel>
+
 }
 
 <section class="pets-page container py-5">
@@ -52,12 +24,12 @@
     </div>
 
     <div class="row g-4">
-        @foreach (var pet in pets)
+        @foreach (var pet in @Model)
         {
             <div class="col-md-6 col-lg-4">
                 <div class="card pet-card h-100">
 
-                    <img src="@pet.ImageUrl"
+                    <img src="@pet.PetImageUrl"
                          class="pet-image"
                          alt="@pet.Name" />
 
@@ -65,18 +37,19 @@
                         <h4 class="fw-bold">@pet.Name</h4>
 
                         <p class="text-muted mb-2">
-                            @pet.Species · @pet.Breed
+                            @pet.SpeciesName · @pet.BreedName
                         </p>
 
                         <p class="mb-4">
                             <i class="bi bi-calendar-heart me-2"></i>
-                            @pet.Age
+                            @pet.BirthDate
                         </p>
 
                         <div class="d-flex gap-2 mt-auto">
-                            <a asp-action="Details"
+                            <a asp-controller="Pets"
+                               asp-action="Details"
                                asp-route-id="@pet.Id"
-                               class="btn btn-paw flex-fill">
+                               class="btn btn-outline-info btn-sm">
                                 Details
                             </a>
 

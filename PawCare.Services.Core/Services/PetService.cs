@@ -88,6 +88,28 @@ namespace PawCare.Services.Core.Services
             return false;
         }
 
+
+        public async Task<GetPetDetailsResponseData?> GetPetDetailsAsync(int petId, string userId)
+        {
+            GetPetDetailsResponseData? petDetailsAsync = await dbContext.Pets
+                .Where(p => p.Id == petId
+                            && p.OwnerId == userId
+                            && !p.IsDeleted)
+                .Select(p => new GetPetDetailsResponseData
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Gender = p.Gender.ToString(),
+                    BirthDate = p.BirthDate,
+                    PetImageUrl = p.PetImageUrl ?? DefaultPetImageUrl,
+                    SpeciesName = p.Species.Name,
+                    BreedName = p.Breed != null ? p.Breed.Name  : null!
+                })
+                .FirstOrDefaultAsync();
+
+            return petDetailsAsync;
+        }
+
         public async Task<GetPetForEditResponseData?> GetPetForEditAsync(int petId, string userId)
         {
 

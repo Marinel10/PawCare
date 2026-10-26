@@ -1,0 +1,112 @@
+﻿@model PetDetailsViewModel
+
+@{
+    ViewData["Title"] = "Pet Details";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
+
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+
+                <div class="row g-0">
+
+                    @* Pet Image *@
+                    <div class="col-md-5">
+                        <img src="@Model.PetImageUrl"
+                             alt="@Model.Name"
+                             class="img-fluid w-100 h-100"
+                             style="object-fit: cover; min-height: 320px;" />
+                    </div>
+
+                    @* Pet Information *@
+                    <div class="col-md-7">
+                        <div class="card-body p-4 p-md-5">
+
+                            <div class="mb-4">
+                                <span class="badge bg-primary-subtle text-primary mb-2">
+                                    🐾 Pet Profile
+                                </span>
+
+                                <h2 class="fw-bold mb-1">
+                                    @Model.Name
+                                </h2>
+
+                                <p class="text-muted">
+                                    @Model.SpeciesName
+                                </p>
+                            </div>
+
+                            <hr />
+
+                            @* Gender *@
+                            <div class="mb-3">
+                                <div class="text-muted small">
+                                    Gender
+                                </div>
+                                <div class="fw-semibold">
+                                    @Model.Gender
+                                </div>
+                            </div>
+
+                            @* Birth Date *@
+                            <div class="mb-3">
+                                <div class="text-muted small">
+                                    Birth Date
+                                </div>
+                                <div class="fw-semibold">
+                                    @Model.BirthDate
+                                </div>
+                            </div>
+
+                            @* Species *@
+                            <div class="mb-3">
+                                <div class="text-muted small">
+                                    Species
+                                </div>
+                                <div class="fw-semibold">
+                                    @Model.SpeciesName
+                                </div>
+                            </div>
+
+                            @* Breed *@
+                            <div class="mb-4">
+                                <div class="text-muted small">
+                                    Breed
+                                </div>
+                                <div class="fw-semibold">
+                                    @(string.IsNullOrWhiteSpace(Model.BreedName) ? "Not specified" : Model.BreedName)
+                                </div>
+                            </div>
+
+                            <hr />
+
+                            @* Buttons *@
+                            <div class="d-flex gap-2 flex-wrap">
+
+                                <a asp-controller="Pets"
+                                   asp-action="Edit"
+                                   asp-route-id="@Model.Id"
+                                   class="btn btn-primary">
+                                    Edit Pet
+                                </a>
+
+                                <a asp-controller="Pets"
+                                   asp-action="Index"
+                                   class="btn btn-outline-secondary">
+                                    Back to My Pets
+                                </a>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

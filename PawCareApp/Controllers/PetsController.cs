@@ -171,12 +171,39 @@
             return RedirectToAction(nameof(Index));
         }
 
-    
 
 
-        [HttpGet]
-        public IActionResult Details(int id) => View();
 
+        public async Task<IActionResult> Details(int id)
+        {
+            string? userId = GetUserId();
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Challenge();
+            }
+
+            GetPetDetailsResponseData? petData =
+                await petService.GetPetDetailsAsync(id, userId);
+
+            if (petData == null)
+            {
+                return NotFound();
+            }
+
+            PetDetailsViewModel model = new PetDetailsViewModel
+            {
+                Id = petData.Id,
+                Name = petData.Name,
+                Gender = petData.Gender,
+                BirthDate = petData.BirthDate,
+                PetImageUrl = petData.PetImageUrl,
+                SpeciesName = petData.SpeciesName,
+                BreedName = petData.BreedName
+            };
+
+            return View(model);
+        }
 
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
@@ -188,8 +215,7 @@
 
             string? userId = GetUserId();
 
-            GetPetForEditResponseData? pet =
-                await petService.GetPetForEditAsync(id, userId);
+            GetPetForEditResponseData? pet = await petService.GetPetForEditAsync(id, userId);
 
             if (pet == null)
             {
