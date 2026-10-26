@@ -11,6 +11,9 @@
 
         Task<bool> CreateAsync(AddPetRequestData request);
 
+
+        Task<GetPetDetailsResponseData?> GetPetDetailsAsync(int petId, string userId);
+
         Task<GetPetForEditResponseData?> GetPetForEditAsync(int petId, string userId);
 
         Task<bool> EditAsync(EditPetRequestData request);
