@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\PawCare.Services.Core\PawCare.Services.Core.csproj" />
     <ProjectReference Include="..\PawCare.Services.Data\PawCare.Services.Data.csproj" />
+    <ProjectReference Include="..\PawCare.ViewModels\PawCare.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

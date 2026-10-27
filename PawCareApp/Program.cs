@@ -1,9 +1,11 @@
 
 namespace PawCare
 {
+    using Data;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
-    using Data;
+    using PawCare.Services.Core.Contracts;
+    using PawCare.Services.Core.Services;
 
     public class Program
     {
@@ -22,6 +24,9 @@ namespace PawCare
                 options.UseSqlServer(connectionString);             
             });
 
+            builder.Services.AddScoped<ISpeciesService, SpeciesService>();
+            builder.Services.AddScoped<IBreedService, BreedService>();
+            builder.Services.AddScoped<IPetService, PetService>();
 
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 

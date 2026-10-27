@@ -24,7 +24,8 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2026 - PawCare - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            @(DateTime.Now.Year > 2014 ? $"2020 - {DateTime.Now.Year}" : "2020") PawCare 
+            <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

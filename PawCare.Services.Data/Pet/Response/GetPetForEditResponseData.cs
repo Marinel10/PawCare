@@ -20,11 +20,12 @@ namespace PawCare.Services.Data.Pet.Response
 
         public DateTime BirthDate { get; set; }
 
-        public string OwnerId { get; set; } = null!;
-
         public int SpeciesId { get; set; }
 
         public int? BreedId { get; set; }
+
+
+        public string OwnerId { get; set; } = null!;
 
 
     }

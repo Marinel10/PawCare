@@ -157,7 +157,24 @@ namespace PawCare.Services.Core.Services
             return true;
         }
 
+        public async Task<bool> DeleteAsync(int petId, string userId)
+        {
+            Pet? pet = await dbContext.Pets
+                .FirstOrDefaultAsync(p =>
+                    p.Id == petId &&
+                    p.OwnerId == userId && !p.IsDeleted);
 
+            if (pet == null)
+            {
+                return false;
+            }
+
+            pet.IsDeleted = true;
+
+            await dbContext.SaveChangesAsync();
+
+            return true;
+        }
 
     }
 }

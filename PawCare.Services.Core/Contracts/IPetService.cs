@@ -19,5 +19,8 @@
         Task<bool> EditAsync(EditPetRequestData request);
 
 
+        Task<bool> DeleteAsync(int petId, string userId);
+
+
     }
 }
