@@ -1,0 +1,82 @@
+﻿body {
+}
+.pet-create-page {
+    background: #f5f8fc;
+    border-radius: 24px;
+    padding: 45px 20px;
+}
+
+.pet-create-card {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid #e9eef5;
+    border-radius: 20px;
+    box-shadow: 0 12px 35px rgba(35, 55, 85, 0.07);
+    padding: 40px;
+}
+
+.pet-create-title {
+    color: #24354b;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.pet-create-subtitle {
+    color: #7a8798;
+    font-size: 0.95rem;
+}
+
+.pet-create-card .form-label {
+    color: #34445a;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.pet-create-card .form-control,
+.pet-create-card .form-select {
+    border: 1px solid #dfe6ef;
+    border-radius: 10px;
+    padding: 12px 14px;
+    background-color: #fbfcfe;
+}
+
+    .pet-create-card .form-control:focus,
+    .pet-create-card .form-select:focus {
+        border-color: #6599db;
+        box-shadow: 0 0 0 3px rgba(101, 153, 219, 0.15);
+        background-color: #fff;
+    }
+
+.pet-create-card .btn {
+    border-radius: 10px;
+    padding: 11px 22px;
+    font-weight: 600;
+}
+
+.pet-create-card .btn-primary {
+    background: #3979c5;
+    border-color: #3979c5;
+}
+
+    .pet-create-card .btn-primary:hover {
+        background: #2d65a8;
+        border-color: #2d65a8;
+    }
+
+.pet-create-card .field-validation-error {
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+@@media (max-width: 576px) {
+    .pet-create-page {
+        padding: 20px 10px;
+    }
+
+    .pet-create-card {
+        padding: 24px 18px;
+    }
+}

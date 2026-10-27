@@ -93,6 +93,13 @@
                                 </a>
 
                                 <a asp-controller="Pets"
+                                   asp-action="Delete"
+                                   asp-route-id="@Model.Id"
+                                   class="btn btn-outline-danger btn-sm">
+                                    Delete
+                                </a>
+
+                                <a asp-controller="Pets"
                                    asp-action="Index"
                                    class="btn btn-outline-secondary">
                                     Back to My Pets

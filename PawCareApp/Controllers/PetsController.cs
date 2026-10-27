@@ -309,10 +309,59 @@
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize]
         [HttpGet]
-        public IActionResult Delete(int id) => View();
+        public async Task<IActionResult> Delete(int id)
+        {
+            string? userId = GetUserId();
 
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Challenge();
+            }
 
+            GetPetDetailsResponseData? petData =
+                await petService.GetPetDetailsAsync(id, userId);
+
+            if (petData == null)
+            {
+                return NotFound();
+            }
+
+            PetDetailsViewModel model = new PetDetailsViewModel
+            {
+                Id = petData.Id,
+                Name = petData.Name,
+                Gender = petData.Gender,
+                BirthDate = petData.BirthDate,
+                PetImageUrl = petData.PetImageUrl,
+                SpeciesName = petData.SpeciesName,
+                BreedName = petData.BreedName
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            string? userId = GetUserId();
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Challenge();
+            }
+
+            bool isDeleted = await petService.DeleteAsync(id, userId);
+
+            if (!isDeleted)
+            {
+                return NotFound();
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
 
         private async Task<IEnumerable<SpeciesViewModel>> SpeciesDropdownsAsync()
         {

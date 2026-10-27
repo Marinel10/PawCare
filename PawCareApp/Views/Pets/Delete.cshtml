@@ -1,0 +1,78 @@
+﻿@model PetDetailsViewModel
+
+@{
+    ViewData["Title"] = "Delete Pet";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-body p-4 p-md-5 text-center">
+
+                    <div class="fs-1 mb-3">🐾</div>
+
+                    <h2 class="fw-bold mb-3">
+                        Delete Pet
+                    </h2>
+
+                    <p class="text-muted mb-4">
+                        Are you sure you want to delete
+                        <strong>@Model.Name</strong>?
+                    </p>
+
+                    @* Pet Image *@
+                    <img src="@Model.PetImageUrl"
+                         alt="@Model.Name"
+                         class="rounded-circle mb-3"
+                         style="width: 140px;
+                                height: 140px;
+                                object-fit: cover;" />
+
+                    <h4 class="fw-semibold">
+                        @Model.Name
+                    </h4>
+
+                    <p class="text-muted">
+                        @Model.SpeciesName
+                        @if (!string.IsNullOrWhiteSpace(Model.BreedName))
+                        {
+                            <span> - @Model.BreedName</span>
+                        }
+                    </p>
+
+                    <div class="alert alert-warning rounded-3 mt-4">
+                        This pet will be removed from your pet list.
+                    </div>
+
+                    @* Delete Confirmation *@
+                    <form asp-controller="Pets"
+                          asp-action="Delete"
+                          asp-route-id="@Model.Id"
+                          method="post">
+
+                        <div class="d-flex justify-content-center gap-3">
+
+                            <a asp-controller="Pets"
+                               asp-action="Details"
+                               asp-route-id="@Model.Id"
+                               class="btn btn-outline-secondary px-4">
+                                Cancel
+                            </a>
+
+                            <button type="submit"
+                                    class="btn btn-danger px-4">
+                                Yes, Delete
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

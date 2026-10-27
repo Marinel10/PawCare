@@ -8,7 +8,7 @@ public class PetAddInputModel
 {
     [Required]
     [StringLength(NameMax, MinimumLength = NameMin)]
-    public string Name { get; set; } = string.Empty;
+    public string Name { get; set; } = null!;
 
     [Required(ErrorMessage = "Please select a gender.")]
     public int Gender { get; set; }

@@ -9,6 +9,7 @@
             public const int NameMax= 100;
             public const int PetImageUrlMax = 2047;
             public const string BirthDateColumnType = "smalldatetime";
+            public const int MinBirthYear = 1900;
 
 
         }
