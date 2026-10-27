@@ -1,0 +1,34 @@
+﻿@model IEnumerable<AppointmentViewModel>
+@{
+    ViewData["Title"] = "My Appointments";
+}
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">My Appointments</h2>
+        <a asp-action="Create" class="btn btn-primary">Book Appointment</a>
+    </div>
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">You have no appointments yet.</div>
+    }
+    else
+    {
+        <div class="table-responsive shadow-sm rounded-3">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light"><tr><th>Pet</th><th>Start</th><th>End</th><th>Status</th><th>Actions</th></tr></thead>
+                <tbody>
+                    @foreach (PawCare.ViewModels.Appointment.AppointmentViewModel appointment in Model)
+                    {
+                        <tr>
+                            <td>@appointment.PetName</td>
+                            <td>@appointment.StartTime.ToString("dd.MM.yyyy HH:mm")</td>
+                            <td>@appointment.EndTime.ToString("dd.MM.yyyy HH:mm")</td>
+                            <td>@appointment.Status</td>
+                            <td><a asp-action="Details" asp-route-id="@appointment.Id" class="btn btn-outline-primary btn-sm">Details</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
