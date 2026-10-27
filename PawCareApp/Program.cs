@@ -1,4 +1,3 @@
-
 namespace PawCare
 {
     using Data;
@@ -24,9 +23,10 @@ namespace PawCare
                 options.UseSqlServer(connectionString);             
             });
 
+            builder.Services.AddScoped<IPetService, PetService>();
             builder.Services.AddScoped<ISpeciesService, SpeciesService>();
             builder.Services.AddScoped<IBreedService, BreedService>();
-            builder.Services.AddScoped<IPetService, PetService>();
+            builder.Services.AddScoped<IAppointmentService, AppointmentService>();
 
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
@@ -35,7 +35,12 @@ namespace PawCare
 
                 options.SignIn.RequireConfirmedAccount = false;
 
-             }).AddEntityFrameworkStores<PawCareDbContext>();
+                options.Password.RequireDigit = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+
+            }).AddEntityFrameworkStores<PawCareDbContext>();
 
             builder.Services.AddControllersWithViews();
 
